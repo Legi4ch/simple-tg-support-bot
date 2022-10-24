@@ -135,13 +135,11 @@ class User extends Db
             $this->dbInstance->beginTransaction();
             $query->execute($params);
             $this->dbInstance->commit();
-            error_log("Запись нового пользователя в базу успешна", 0);
             $this->id = $this->dbInstance->lastInsertId();
             return True;
         } catch (Exception $e) {
             $this->dbInstance->rollBack();
             echo $e->getMessage();
-            error_log("Запись нового пользователя не удалась", 0);
             return False;
         }
     }
