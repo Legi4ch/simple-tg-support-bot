@@ -144,20 +144,3 @@ class User extends Db
         }
     }
 }
-/*
-    public function checkUserBlocks():bool {
-        $sql = "select count(id) from active_blocks bl where bl.user_id = :userId and bl.dt > :ts";
-        $params = array(":userId" => $this->id,":ts" => time());
-        $query = $this->dbInstance->prepare($sql);
-        $query->execute($params);
-        return (intval($query->fetchColumn(0)) > 0) ? true : false;
-    }
-
-    public function addUserBlocks($time = 300) {
-        $sql = "insert into active_blocks (`user_id`, `dt`) values (:userId, :ts)";
-        $params = array(":userId" => $this->id,":ts" => time() + $time);
-        $query = $this->dbInstance->prepare($sql);
-        $query->execute($params);
-    }
-
-*/
